@@ -48,7 +48,9 @@ Install Python Flask dependency
 
     pip install flask
     pip install flask-mysql
-
+    
+If pip installation give error
+export LC_ALL=C
 - Copy app.py or download it from source repository
 - Configure database credentials and parameters 
 
