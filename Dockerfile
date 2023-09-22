@@ -1,6 +1,9 @@
-FROM python:3.9.18-slim-bullseye
-RUN apt-get update
+FROM ubuntu:16.04
+RUN apt-get update && apt-get insatll -y python puthon-pip
+
 RUN pip install flask
+
+COPY ./app.py /opt/
 #RUN pip install flask-mysql
 
-ENTRYPOINT FLASK_APP=app.py --host=0.0.0.0 --p=5000
+ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --p=5000
