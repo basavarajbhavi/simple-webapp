@@ -1,4 +1,4 @@
-FROM python
+FROM python:3.9.18-slim-bullseye
 RUN apt-get update
 RUN apt-get install -y python python-pip
 
