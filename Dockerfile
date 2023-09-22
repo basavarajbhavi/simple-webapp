@@ -1,9 +1,12 @@
-FROM ubuntu:16.04
+# syntax=docker/dockerfile:1
 
-RUN apt-get update && apt-get install -y python python-pip ---upgrade
+FROM python:3.8-slim-buster
 
-RUN pip install flask
+WORKDIR /python-docker
 
-COPY app.py /opt/
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
-ENTRYPOINT FLASK_APP=/opt/app.py flask run --host=0.0.0.0 --port=5000
+COPY . .
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
